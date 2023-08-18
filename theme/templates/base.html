@@ -1,0 +1,412 @@
+{% load static %}
+{% load static tailwind_tags %}
+
+
+{% load fontawesome_5 %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>{% block title %}Django Tailwind{%endblock%}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		{% tailwind_css %}
+	</head>
+
+	<body id="background" class="bg-center bg-no-repeat bg-cover bg-fixed" style="background-image: url('{% static 'imgs/base_operations_by_kirokaze_d9mug6u.gif' %}');">
+		
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const backgroundElement = document.getElementById('background');
+        const bgFromLocalStorage = localStorage.getItem('bg_name');
+        const backgroundUrl = `{% static 'imgs/' %}${bgFromLocalStorage}.gif`;
+
+        if (bgFromLocalStorage) {
+          backgroundElement.style.backgroundImage = `url(${backgroundUrl})`;
+        }
+    
+      
+      });
+    </script>
+		
+		
+
+    <nav
+    class="z-20 flex shrink-0 grow-0 justify-around gap-4 border-t  bg-white/50 p-2.5 shadow-lg backdrop-blur-lg dark:border-slate-600/60 dark:bg-slate-800/50 fixed top-2/4 -translate-y-2/4 left-6 min-h-[auto] min-w-[64px] flex-col rounded-lg border"
+    >
+    <a
+        href="{% url 'profile_user'%}" target="_blank"
+        class="flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800"
+    >
+        <!-- HeroIcon - User -->
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 shrink-0"
+        >
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+        />
+        </svg>
+
+        <small class="text-center text-xs font-medium"> Profile </small>
+    </a>
+
+    <button
+        onclick="showModalFriend()"
+        class="flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800"
+    >
+        <!-- HeroIcon - Chart Bar -->
+        <svg 
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 shrink-0 mr-4"
+        >
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+        />
+        </svg>
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 shrink-0 absolute left-12 -mt-4"
+        >
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+        />
+        </svg>
+
+
+
+
+        <small class="text-center text-xs font-medium">Friends</small>
+    </button>
+
+
+
+    <!-- component -->
+<style>
+    dialog[open] {
+    animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
+  }
+  
+    dialog::backdrop {
+      background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(54, 54, 54, 0.5));
+      backdrop-filter: blur(3px);
+    }
+    
+   
+  @keyframes appear {
+    from {
+      opacity: 0;
+      transform: translateX(-3rem);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  } 
+  </style>
+  
+  
+
+
+  <button onclick="document.getElementById('myModal').showModal()" id="btn" class="flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800">
+    <!-- HeroIcon - Cog-6-tooth -->
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 shrink-0"
+        >
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"
+        />
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+        />
+        </svg>
+
+        <small class="text-center text-xs font-medium"> Settings </small>
+</button>
+
+
+    <hr class="dark:border-gray-700/60" />
+
+    <a
+        href="/"
+        class="flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800 bg-black bg-opacity-50"
+    >
+    <!-- HeroIcon - Home Modern -->
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+        >
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819"
+        />
+        </svg>
+
+        <small className="text-xs font-medium">Home</small>
+    </a>
+    </nav>
+		{% block content %}
+		{% endblock%}
+
+
+		{% include './core/components/chat.html' %}
+		{% include "./core/components/footer.html" %}
+
+
+
+
+
+
+
+
+
+        <!---Modall Config-->
+  <dialog id="myModal" class="h-auto w-11/12 md:w-5/6 p-5  bg-black rounded-md bg-opacity-50">
+
+    <h1 class="text-white text-3xl font-bold ml-2">Backgrounds</h1>
+
+    <div class="flex flex-col w-full h-auto ">
+         <!-- component -->
+<div class="p-24 flex flex-wrap items-center justify-center">
+
+    <div onclick="document.getElementById('myModal').close();" class="absolute flex  top-0 justify-end cursor-pointer mt-4 text-white transform transition duration-300 ease-in-out">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x text-white"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </div>
+
+  
+
+
+    
+    <div class="flex-shrink-0  relative overflow-hidden  rounded-lg max-w-xs shadow-lg bg-cover bg-center hover:animate-pulse" style="background-image: url({% static 'imgs/cityange.gif' %})">
+      <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none" style="transform: scale(1.5); opacity: 0.1;">
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white"/>
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white"/>
+      </svg>
+      <div class="relative pt-10 px-10 flex items-center justify-center h-48">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3" ></div>
+        <img class="relative w-40" src="" alt="">
+      </div>
+      <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1">City</span>
+        <div class="flex justify-between">
+          <span class="block font-semibold text-xl">Futurista</span>
+          <button onclick="changebackground('cityange')">
+          <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center transform transition duration-300 ease-in-out hover:scale-110">Get</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex-shrink-0 m-8 relative overflow-hidden rounded-lg max-w-xs shadow-lg bg-cover bg-center hover:animate-pulse " style="background-image: url({% static 'imgs/maison.gif' %})">
+      <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none" style="transform: scale(1.5); opacity: 0.1;">
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white"/>
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white"/>
+      </svg>
+      <div class="relative pt-10 px-10 flex items-center justify-center h-48">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3" style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"></div>
+        <img class="relative w-40" src="" alt="">
+      </div>
+      <div class="relative text-white bg-black bg-opacity-50 px-6 pb-6 mt-6">
+        <span class="block   -mb-1">Maison</span>
+        <div class="flex justify-between">
+
+          <span class="block font-semibold text-xl">Futurista</span>
+          <button onclick="changebackground('maison')">
+            <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center transform transition duration-300 ease-in-out hover:scale-110">Get</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex-shrink-0 relative overflow-hidden rounded-lg max-w-xs shadow-lg bg-cover bg-center hover:animate-pulse" style="background-image: url({% static 'imgs/feu.gif' %})">
+      <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none" style="transform: scale(1.5); opacity: 0.1;">
+        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white"/>
+        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white"/>
+      </svg>
+      <div class="relative pt-10 px-10 flex items-center justify-center h-48">
+        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3" style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"></div>
+        <img class="relative w-40" src="" alt="">
+      </div>
+      <div class="relative text-white px-6 pb-6 mt-6">
+        <span class="block opacity-75 -mb-1">Brutus</span>
+        <div class="flex justify-between">
+          <span class="block font-semibold text-xl">Futurista</span>
+          <button onclick="changebackground('feu')">
+            <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center transform transition duration-300 ease-in-out hover:scale-110">Get</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="flex-shrink-0  relative overflow-hidden  rounded-lg max-w-xs shadow-lg ml-2 bg-cover bg-center hover:animate-pulse" style="background-image: url({% static 'imgs/desktop-animation2.gif' %})">
+        <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none" style="transform: scale(1.5); opacity: 0.1;">
+          <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white"/>
+          <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white"/>
+        </svg>
+        <div class="relative pt-10 px-10 flex items-center justify-center h-48">
+          <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3" style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"></div>
+          <img class="relative w-40" src="" alt="">
+        </div>
+        <div class="relative text-white px-6 pb-6 mt-6">
+          <span class="block opacity-75 -mb-1">Straid</span>
+          <div class="flex justify-between">
+            <span class="block font-semibold text-xl">Futurista</span>
+            <button onclick="changebackground('desktop-animation2')">
+            <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center transform transition duration-300 ease-in-out hover:scale-110">Get</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex-shrink-0 m-8 relative overflow-hidden  rounded-lg max-w-xs shadow-lg bg-cover bg-center hover:animate-pulse " style="background-image: url({% static 'imgs/desktop-animation4.gif' %})">
+        <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none" style="transform: scale(1.5); opacity: 0.1;">
+          <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white"/>
+          <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white"/>
+        </svg>
+        <div class="relative pt-10 px-10 flex items-center justify-center h-48">
+          <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3" style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"></div>
+          <img class="relative w-40" src="" alt="">
+        </div>
+        <div class="relative text-white px-6 pb-6 mt-6">
+          <span class="block opacity-75 -mb-1">Traid</span>
+          <div class="flex justify-between">
+            <span class="block font-semibold text-xl">Futurista</span>
+            <button onclick="changebackground('desktop-animation4')">
+            <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center transform transition duration-300 ease-in-out hover:scale-110">Get</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex-shrink-0 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg bg-cover bg-center hover:animate-pulse" style="background-image: url({% static 'imgs/8642986.gif' %})">
+        <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none" style="transform: scale(1.5); opacity: 0.1;">
+          <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white"/>
+          <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white"/>
+        </svg>
+        <div class="relative pt-10 px-10 flex items-center justify-center h-48">
+          <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3" style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"></div>
+          <img class="relative w-40" src="" alt="">
+        </div>
+        <div class="relative text-white px-6 pb-6 mt-6">
+          <span class="block opacity-75 -mb-1">Raid</span>
+          <div class="flex justify-between">
+            <span class="block font-semibold text-xl">Futurista</span>
+            <button onclick="changebackground('8642986')">
+            <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center transform transition duration-300 ease-in-out hover:scale-110">Get</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    
+    
+  </div>
+           
+
+
+<!-- component -->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<style>
+    :root { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+</style>
+    <div class="max-w-xl mx-auto p-6  rounded-lg shadow my-10 bg-center" style="background-image: url('{% static 'imgs/detfftq-03e74626-78fb-446e-b7bc-dd99d5f6b63e.gif' %}');"">
+        <h1 class="text-2xl  mb-5 text-white font-bold bg-black px-3 rounded-md w-52 bg-opacity-50">#{{ request.user }}</h1>
+    
+        <div class="inline-flex items-center rounded-md shadow-sm">
+            <button onclick="showModalFriend()" class="text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-200 rounded-l-lg font-medium px-4 py-2 inline-flex space-x-1 items-center">
+                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                  </svg>
+                  </span>
+                <span>Friends</span>
+            </button>
+            <a href="{% url 'profile_user' %}" target="_blank" class="text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border-y border-slate-200 font-medium px-4 py-2 inline-flex space-x-1 items-center">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>                      
+                </span>
+                <span>Profile</span>
+              </a>
+            <a href="{% url 'logout' %}"  class="text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-200 rounded-r-lg font-medium px-4 py-2 inline-flex space-x-1 items-center">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                  </svg>
+                  </span>
+                <span>Logout</span>
+                </a>
+        </div>
+        <hr class="my-5 border border-slate-100">
+      
+    </div>
+    
+    
+
+           
+         </div>
+ </dialog>
+
+
+ {% include "./core/components/friend_request.html" %}
+
+<script>
+  function changebackground(name_background) {
+    const background = document.getElementById('background');
+    const body = document.body;
+  
+    const selectedOption = background.value;
+    const backgroundUrl = `{% static 'imgs/' %}${name_background}.gif`;
+    console.log(backgroundUrl)
+    body.style.backgroundImage = `url(${backgroundUrl})`;
+
+    localStorage.setItem('bg_name',name_background);
+  }
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+
+
+<!-- component -->
+<div class="absolute top-0 left-0 right-0 bottom-0 min-h-screen flex items-center justify-center hidden mx-auto bg-white/50 bg-opacity-50    transition-opacity duration-500  ease-in-out" id="modalfriend" style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(54, 54, 54, 0.5));
+backdrop-filter: blur(3px);">
+    <div class="bg-black bg-opacity-50  flex-1 flex flex-col space-y-5 lg:space-y-0 lg:flex-row lg:space-x-10 max-w-6xl sm:p-6 sm:my-2 sm:mx-4 sm:rounded-2xl">
+      <!-- Navigation -->
+      <div class=" px-2 lg:px-4 py-2 lg:py-10 sm:rounded-xl flex lg:flex-col justify-between">
+        <nav class="flex items-center flex-row space-x-2 lg:space-x-0 lg:flex-col lg:space-y-2">
+   
+          <!-- Active: bg-gray-800 text-white, Not active: text-white/50 -->
+          <a class="bg-transparent text-white p-4 inline-flex justify-center rounded-md" >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+            </svg>
+          </a>
+       
+        </nav>
+    
+      </div>
+      <!-- Content -->
+      <div class="flex-1 px-2 sm:px-0">
+        <div class="flex justify-between items-center">
+          <h3 class="text-3xl font-extralight text-white/50">Friends <span class="text-3xl font-extralight text-white bg-gray-800 bg-opacity-50 px-3 rounded-md hover:text-blue-500">{{ count_friends }}</span></h3>
+          <div class="inline-flex items-center space-x-2">
+            <a class="bg-gray-900 text-white/50 p-2 rounded-md hover:text-white smooth-hover" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+              </svg>
+            </a>
+            <buttom onclick="closeModalFriend()" class="bg-gray-900 text-white/50 p-2 rounded-md hover:text-white smooth-hover cursor-pointer" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              
+            </buttom>
+          </div>
+        </div>
+
+        <div class="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {% for friend in profile_user_friends %}
+          <div class="relative group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
+            <img class="w-20 h-20 object-cover object-center rounded-full" src="{{ friend.avatar.url }}" alt="avatar" />
+            <h4 class="text-white text-2xl font-bold capitalize text-center">{{ friend.user }}</h4>
+            <p class="text-white/50">{{ friend.status_desc }}</p>
+            {% if friend.status == 'online' %}
+              <p class="absolute top-2 text-white/20 inline-flex items-center text-xs font-bold">{{ friend.status }} <span class="ml-2 w-2 h-2 block bg-green-500 rounded-full group-hover:animate-pulse"></span></p>
+            {%else%}
+              <p class="absolute top-2 text-white/20 inline-flex items-center text-xs font-bold">{{ friend.status }} <span class="ml-2 w-2 h-2 block bg-gray-500 rounded-full group-hover:animate-pulse"></span></p>
+            
+            {% endif %}
+
+          </div>
+          {% endfor %}
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+<script>
+
+  
+  function showModalFriend(){
+    document.getElementById('myModal').close();
+    const modal = document.getElementById("modalfriend");
+    modal.classList.remove("hidden");
+    
+  }
+
+  function closeModalFriend(){
+    const modal = document.getElementById("modalfriend");
+    modal.classList.add("hidden");
+  }
+</script>

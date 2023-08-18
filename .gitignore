@@ -1,0 +1,44 @@
+# Ignorar archivos y directorios generados automáticamente
+__pycache__/
+*.py[cod]
+*.db
+*.sqlite3
+*.log
+
+
+node_modules/
+
+# Ignorar archivos de configuración local
+settings_local.py
+local_settings.py
+
+# Ignorar archivos de entorno virtual
+0xfe/
+.env
+
+# Ignorar archivos y directorios de medios y archivos estáticos
+media/
+static/
+
+# Ignorar archivos de migraciones
+**/migrations/
+
+# Ignorar archivos de registro y salida
+logs/
+*.log
+*.log.*
+
+# Ignorar archivos de caché
+*.cache
+
+# Ignorar archivos de respaldo
+*~
+*.bak
+
+# Ignorar archivos de pruebas y cubrimiento
+.coverage
+.tox/
+nosetests.xml
+htmlcov/
+
+# Ignorar
