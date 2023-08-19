@@ -9,3 +9,5 @@ pip install -r requirements.txt
 
 python ./bin/manage.py makemigrations
 python ./bin/manage.py migrate
+
+python ./bin/manage.py tailwind start
