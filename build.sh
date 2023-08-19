@@ -12,6 +12,11 @@ pip install -r requirements.txt
 
 npm install rimraf
 
+npm cache clean --force
+
+npm install
+
+
 python ./bin/manage.py makemigrations
 
 python ./bin/manage.py migrate
