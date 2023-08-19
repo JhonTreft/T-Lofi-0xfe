@@ -22,9 +22,13 @@ ALLOWED_HOSTS = [
 
 TAILWIND_APP_NAME ='theme'
 
-NPM_BIN_PATH = 'C:\\Program Files\\nodejs\\npm.cmd'
+#NPM_BIN_PATH = 'C:\\Program Files\\nodejs\\npm.cmd'
 
-NODE_PATH = "C:\\Program Files\\nodejs"
+#NODE_PATH = "C:\\Program Files\\nodejs"
+
+NPM_BIN_PATH = '/usr/bin/npm'
+
+NODE_PATH = '/usr/bin/node'
 
 ROOT_URLCONF = 'T_Lofi.urls'
 
