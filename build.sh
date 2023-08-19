@@ -14,7 +14,7 @@ cd ./theme/static_src && npm install
 # Ejecuta npm install para instalar las dependencias
 npm install
 
-
+cd ../..
 python ./bin/manage.py makemigrations
 
 python ./bin/manage.py migrate
