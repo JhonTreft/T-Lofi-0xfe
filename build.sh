@@ -8,7 +8,9 @@ pip install uvicorn
 
 pip install -r requirements.txt
 
+npm install
 
+npm install cross-env
 
 python ./bin/manage.py makemigrations
 
