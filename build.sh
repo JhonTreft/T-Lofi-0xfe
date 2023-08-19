@@ -14,8 +14,9 @@ npm install rimraf
 
 npm cache clean --force
 
-npm install
+npm install tailwind
 
+npm install
 
 python ./bin/manage.py makemigrations
 
