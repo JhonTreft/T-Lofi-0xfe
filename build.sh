@@ -8,9 +8,12 @@ pip install uvicorn
 
 pip install -r requirements.txt
 
+# Navega al directorio del paquete de tema
+cd ./theme/static_src && npm install
+
+# Ejecuta npm install para instalar las dependencias
 npm install
 
-npm install cross-env
 
 python ./bin/manage.py makemigrations
 
