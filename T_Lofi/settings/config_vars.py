@@ -16,7 +16,9 @@ if not(SECRET_KEY):
     exit(1)
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "t-lofi.onrender.com",
+]
 
 TAILWIND_APP_NAME ='theme'
 
