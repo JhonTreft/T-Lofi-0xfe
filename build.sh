@@ -9,7 +9,7 @@ pip install uvicorn
 pip install -r requirements.txt
 
 # Navega al directorio del paquete de tema
-cd ./theme/static_src && npm install
+cd ./theme/static_src && npm install && npm run dev
 
 
 cd ../..
@@ -20,10 +20,10 @@ python ./bin/manage.py migrate
 
 python ./bin/manage.py collectstatic --no-input
 
-python ./bin/manage.py tailwind start
+#python ./bin/manage.py tailwind start
 
 
-if [[ $CREATE_SUPERUSER ]];
-then
-  python ./bin/manage.py createsuperuser --no-input
-fi
+#if [[ $CREATE_SUPERUSER ]];
+#hen
+#  python ./bin/manage.py createsuperuser --no-input
+#fi"""
