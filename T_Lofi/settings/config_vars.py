@@ -48,6 +48,9 @@ USE_I18N = False
 USE_TZ = True
 
 
+#
+
+
 #Auth django-allauth
 SITE_ID = 1
 
@@ -68,6 +71,7 @@ SESSION_SAVE_EVERY_REQUEST = True
 STATIC_URL = 'static/'
 STATIC_ROOT = 'static/'
 
+STATICFILES_DIRS = ["static"] # new
 
 
 MEDIA_URL = 'media/songs/'

@@ -18,7 +18,7 @@ python ./bin/manage.py makemigrations
 
 python ./bin/manage.py migrate
 
-python ./bin/manage.py collectstatic --no-input
+#python ./bin/manage.py collectstatic --no-input
 
 #python ./bin/manage.py tailwind start
 
