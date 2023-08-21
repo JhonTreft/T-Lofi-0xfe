@@ -1,4 +1,7 @@
-import { enviroments_url.HOST_URL } from './config/config'
+
+const enviroments_url = {
+  HOST_URL:"https://t-lofi.onrender.com",
+}
 
 gustar_o_no = document.getElementById('song-saved')
 
