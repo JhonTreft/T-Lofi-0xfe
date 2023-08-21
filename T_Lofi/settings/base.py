@@ -18,7 +18,7 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sessions.backends.db',
-    
+    'django.contrib.sites.models.Site',
     'django.contrib.staticfiles',
     'django_browser_reload',
     'django.contrib.sites',
@@ -28,8 +28,9 @@ DJANGO_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
+    
 
-
+    
 ]
 
 
