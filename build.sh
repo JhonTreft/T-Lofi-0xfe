@@ -32,7 +32,7 @@ python ./bin/manage.py migrate
 #python ./bin/manage.py tailwind start
 
 
-if [[ $CREATE_SUPERUSER ]];
-then
-  python ./bin/manage.py createsuperuser --no-input
-fi
+#if [[ $CREATE_SUPERUSER ]];
+#then
+#  python ./bin/manage.py createsuperuser --no-input
+#fi
