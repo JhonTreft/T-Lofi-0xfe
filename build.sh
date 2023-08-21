@@ -23,7 +23,7 @@ python ./bin/manage.py collectstatic --no-input
 #python ./bin/manage.py tailwind start
 
 
-#if [[ $CREATE_SUPERUSER ]];
-#hen
-#  python ./bin/manage.py createsuperuser --no-input
-#fi"""
+if [[ $CREATE_SUPERUSER ]];
+then
+  python ./bin/manage.py createsuperuser --no-input
+fi
