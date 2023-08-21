@@ -1,7 +1,8 @@
 
 import os
 
-DEBUG = 'RENDER' not in os.environ
+#DEBUG = 'RENDER' not in os.environ
+DEBUG = True
 #Database Production
 
 """
