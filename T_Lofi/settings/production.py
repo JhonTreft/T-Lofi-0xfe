@@ -1,5 +1,7 @@
-DEBUG = True
 
+import os
+
+DEBUG = 'RENDER' not in os.environ
 #Database Production
 
 """
@@ -17,10 +19,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'postgres',
+        'NAME': 't_lofi',
+        'USER': 'jhon',
+        'PASSWORD': 'PHRB0JfcAbIaxWnXRWnyPs2hFfjLbuFb',
+        'HOST': 'dpg-cjhu7admrchc73a58qa0-a',
         'PORT': '5432',
     }
 }

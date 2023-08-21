@@ -1,7 +1,7 @@
 from .config_vars  import *
-from .local import *
+#from .local import *
 from itertools import chain
-#from .production import *
+from .production import *
 
 #import cloudinary
 

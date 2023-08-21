@@ -2,8 +2,8 @@ from .config_vars import BASE_DIR
 import os
 
 
-#DEBUG = 'RENDER' not in os.environ
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ
+#DEBUG = True
 
 DATABASES = {
     'default': {
