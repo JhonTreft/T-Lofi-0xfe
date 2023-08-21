@@ -14,6 +14,15 @@ cd ./theme/static_src && npm install && npm run dev
 
 cd ../..
 
+
+
+python ./run_makemigrations.py
+
+python ./run_migrate.py
+
+
+#Django Migrations and makemigrations
+
 python ./bin/manage.py makemigrations
 
 python ./bin/manage.py migrate
