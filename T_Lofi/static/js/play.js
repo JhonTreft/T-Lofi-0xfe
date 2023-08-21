@@ -39,7 +39,7 @@ saveButton.addEventListener('click', function() {
     let id_song = document.getElementById('id_song').textContent;
     console.log("id",id_song)
 
-    var url = 'http://localhost:8000/api/not_song/' + id_song;
+    var url = `${enviroments_url}/api/not_song/` + id_song;
 
     console.log(url)
 
@@ -75,7 +75,7 @@ saveButton.addEventListener('click', function() {
     let id_song = document.getElementById('id_song').textContent;
 
 
-    var url = 'http://localhost:8000/api/increment_zumba/' + id_song;
+    var url = `${enviroments_url}/api/increment_zumba/` + id_song;
 
     console.log(url)
 
@@ -221,7 +221,7 @@ nextButton.addEventListener('click', function() {
 });
 */
 const xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://localhost:8000/api/songs');
+xhr.open('GET', `${enviroments_url}/api/songs`);
 let songs = [];
 
 const promise = new Promise((resolve, reject) => {
@@ -301,7 +301,7 @@ let shownMessages = []; // arreglo para almacenar los ID de los mensajes que ya 
 function mostrarMensajes() {
   console.log("Enviando solicitud AJAX...");
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://localhost:8000/chats');
+  xhr.open('GET', `${enviroments_url}/chats`);
   
   xhr.onload = function() {
       if (xhr.status === 200) {
@@ -403,7 +403,7 @@ document.querySelector('.chat-input button').addEventListener('click', function(
   // Enviar el mensaje al servidor a través de una solicitud AJAX
   console.log("Enviando solicitud AJAX.. POSTTTT.");
   let xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:8000/chat/create');
+  xhr.open('POST', `${enviroments_url}/chat/create`);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onload = function() {
       if (xhr.status === 200) {
