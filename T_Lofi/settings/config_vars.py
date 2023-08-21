@@ -52,7 +52,7 @@ USE_TZ = True
 
 
 #Auth django-allauth
-SITE_ID = 2 
+SITE_ID = 3
 
 SOCIALACCOUNT_LOGIN_ON_GET=True
 
