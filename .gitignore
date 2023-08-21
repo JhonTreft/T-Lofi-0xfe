@@ -17,8 +17,8 @@ local_settings.py
 .env
 
 # Ignorar archivos y directorios de medios y archivos estáticos
-media/
-static/
+#media/
+#static/
 
 # Ignorar archivos de migraciones
 **/migrations/
