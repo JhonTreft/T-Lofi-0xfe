@@ -75,7 +75,7 @@ STATICFILES_DIRS = ["static"] # new
 
 
 MEDIA_URL = 'media/songs/'
-MEDIA_ROOT='media/songs/'
+MEDIA_ROOT = path.join(BASE_DIR, 'media/songs')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

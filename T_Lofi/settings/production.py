@@ -2,7 +2,7 @@
 import os
 
 #DEBUG = 'RENDER' not in os.environ
-DEBUG = True
+DEBUG = False
 #Database Production
 
 """
