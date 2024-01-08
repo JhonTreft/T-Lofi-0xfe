@@ -24,7 +24,7 @@ python ./bin/manage.py collectstatic --no-input
 python ./bin/manage.py tailwind start
 
 # Crear superusuario si se especifica
-if [[ $CREATE_SUPERUSER ]];
-then
-  python ./bin/manage.py createsuperuser --no-input
-fi
+#if [[ $CREATE_SUPERUSER ]];
+#then
+#  python ./bin/manage.py createsuperuser --no-input
+#fi
