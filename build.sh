@@ -5,7 +5,7 @@ set -o errexit
 # Instalar o actualizar pip y otras dependencias de Python
 #pip install --upgrade pip
 pip install uvicorn
-#pip install -r requirements.txt
+pip install -r requirements.txt
 
 # Navegar al directorio del paquete de tema
 cd ./theme/static_src 
@@ -22,8 +22,6 @@ cd ../..
 python ./bin/manage.py migrate
 python ./bin/manage.py collectstatic --no-input
 python ./bin/manage.py tailwind start
-
-python -m uvicorn  T_Lofi.asgi:application --host 0.0.0.0
 
 # Crear superusuario si se especifica
 #if [[ $CREATE_SUPERUSER ]];
