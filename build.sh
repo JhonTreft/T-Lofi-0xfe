@@ -21,7 +21,7 @@ pip install -r requirements.txt
 # Ejecutar comandos de Django
 python ./bin/manage.py migrate
 python ./bin/manage.py collectstatic --no-input
-#python ./bin/manage.py tailwind start
+python ./bin/manage.py tailwind start
 
 # Crear superusuario si se especifica
 if [[ $CREATE_SUPERUSER ]];
