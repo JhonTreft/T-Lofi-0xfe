@@ -8,13 +8,9 @@ pip install uvicorn
 pip install -r requirements.txt
 
 # Navegar al directorio del paquete de tema
-cd ./theme/static_src
+cd ./theme/static_src && npm install  && npm build && npm run dev
 
-# Actualizar e instalar las dependencias de Node.js
-npm install -g npm@latest
-npm install  # Esto instala las dependencias según el package.json
-npm run dev  # Inicia el entorno de desarrollo de Tailwind CSS
-
+# Actualizar e instalar las dependencias de Node.js¿
 # Volver al directorio principal del proyecto
 cd ../..
 
