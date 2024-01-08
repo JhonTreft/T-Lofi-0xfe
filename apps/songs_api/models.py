@@ -5,7 +5,6 @@ from ..helpers.validation_mp3 import validate_mp3,validate_file_size,validate_im
 import cloudinary.uploader
 
 from cloudinary.models import CloudinaryField
-from b2sdk.v1 import B2Api
 
 
 
