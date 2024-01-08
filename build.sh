@@ -8,7 +8,7 @@ pip install uvicorn
 pip install -r requirements.txt
 
 # Navegar al directorio del paquete de tema
-cd ./theme/static_src && npm install  && npm build && npm run dev
+cd ./theme/static_src && npm install  && npm run build && npm run dev
 
 # Actualizar e instalar las dependencias de Node.js¿
 # Volver al directorio principal del proyecto
