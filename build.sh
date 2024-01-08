@@ -11,7 +11,8 @@ pip install -r requirements.txt
 cd ./theme/static_src
 
 # Actualizar e instalar las dependencias de Node.js
-npm install  # Esto instala las dependencias según el package.json
+npm install -g npm@latest
+#npm install  # Esto instala las dependencias según el package.json
 npm run dev  # Inicia el entorno de desarrollo de Tailwind CSS
 
 # Volver al directorio principal del proyecto
