@@ -17,7 +17,7 @@ if not(SECRET_KEY):
 
 
 ALLOWED_HOSTS = [
-    "t-lofi-0xf3.onrender.com",
+    "t-lofi.onrender.com",
     "localhost",
     "127.0.0.1"
 ]
