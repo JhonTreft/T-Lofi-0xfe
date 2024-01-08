@@ -17,8 +17,9 @@ if not(SECRET_KEY):
 
 
 ALLOWED_HOSTS = [
-    "t-lofi.onrender.com",
-    "localhost"
+    "t-lofi-0xf3.onrender.com",
+    "localhost",
+    "127.0.0.1"
 ]
 
 TAILWIND_APP_NAME ='theme'
