@@ -8,8 +8,9 @@ pip install uvicorn
 
 pip install -r requirements.txt
 
+
 # Navega al directorio del paquete de tema
-cd ./theme/static_src && npm install && npm run dev
+cd ./theme/static_src && npm update && npm install && npm run dev
 
 
 cd ../..
