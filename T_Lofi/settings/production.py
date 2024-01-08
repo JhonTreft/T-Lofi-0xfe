@@ -1,29 +1,18 @@
 
 import os
 
-#DEBUG = 'RENDER' not in os.environ
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ
+#DEBUG = True
 #Database Production
 
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'administration_sc',
-        'USER': 'postgresql',
-        'PASSWORD': 'dentreaca1',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}"""
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 't_lofi',
-        'USER': 'jhon',
-        'PASSWORD': 'PHRB0JfcAbIaxWnXRWnyPs2hFfjLbuFb',
-        'HOST': 'dpg-cjhu7admrchc73a58qa0-a',
-        'PORT': '5432',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'Eb4aFGB326dFF1fE6515B1*ge6FAGGB4',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '28610',
     }
 }

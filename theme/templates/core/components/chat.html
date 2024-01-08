@@ -19,12 +19,45 @@
 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css"  />-->
 
+ <style>
+    /* Estilos para tamaños de pantalla pequeños */
+    @media screen and (min-width: 645px) {
+      .box_content {
+        right: 0px;
+        top: 25px;
+        width: 350px;
+      }
+    }
+
+    @media screen and (min-width:376px) and (max-width: 644px) {
+      .small_chat_height {
+        height: 500px;
+      }
+    }
+
+    @media screen and (min-width: 645px) {
+      .small_chat_height {
+        height: 630px;
+      }
+    }
+
+    @media screen and (max-width: 375px) {
+      .small_chat_height {
+        height: 350px;
+      }
+    }
+
+
+
+</style>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/amplitudejs/5.3.2/amplitude.min.js"></script>
-<div class="parent-element w-full h-full"  >
-  <div class="relative">
-    <div class="absolute top-0 right-0 w-1/4 ">
-      <div class="bg-opacity-70 w-full sm:flex sm:flex-col-reverse  ">
-        <div class="py-2 px-4 max-w-md " style="height: 630px;" >
+<div class="parent-element w-full h-full mx-auto"  >
+  <div class="mx-auto">
+    <div class="absolute bottom-0  w-4/2 box_content mx-auto">
+      <div class="bg-opacity-70 w-full sm:flex sm:flex-col-reverse mx-auto px-6">
+        <div class="py-2 px-4 max-w-md small_chat_height">
           <main class="h-full flex flex-col justify-between" >
 
 
@@ -36,6 +69,7 @@
                 <div class="chat-header-icon cursor-pointer">
                   <i class="fas fa-ellipsis-v text-gray-400"></i>
                 </div>
+                
               </div>
 
               <div class="chat-messages px-4 py-2 overflow-y-auto flex-1 max-w-md break-words " id="chat-container" style="word-break: break-all;">
@@ -104,20 +138,7 @@
 
 
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const input = document.getElementById("textarea");
-    const selectAmigos = document.getElementById("selectAmigos");
-  
-    input.addEventListener("input", function () {
-      const inputValue = input.value;
-  
-      if (inputValue.includes("@")) {
-        selectAmigos.classList.remove("hidden");
-      } else {
-        selectAmigos.classList.add("hidden");
-      }
-    });
-  });
+
   
 
 
@@ -211,6 +232,13 @@ setInterval(function() {
   }
 }
 
+/* Estilos para tamaños de pantalla pequeños */
+@media screen and (max-width: 640px) {
+  .small {
+    width: 350px;
+  }
+}
+
 /* Estilos para la sombra elevada en los mensajes.chat-message-content {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }*/
@@ -227,8 +255,9 @@ setInterval(function() {
   
     </div>
     
+    
   </div>
-    <div class="relative w-player flex flex-col rounded-xl  bg-player-light-background  dark:shadow-player-dark dark:bg-player-dark-background dark:border-player-dark-border dark:backdrop-blur-xl mx-auto	mt-8">
+    <div class="relative w-player flex flex-col rounded-xl  bg-player-light-background  dark:shadow-player-dark dark:bg-player-dark-background dark:border-player-dark-border dark:backdrop-blur-xl mx-auto	mt-8 small">
       <div class="px-10 pt-10 pb-4 flex items-center z-50">
         <img data-amplitude-song-info="cover_art_url" class="w-24 h-24 rounded-md mr-6 border border-bg-player-light-background dark:border-cover-dark-border"/>
 
@@ -315,22 +344,7 @@ setInterval(function() {
 
 
 
-    <script>
-      // Obtener el control de volumen y la barra deslizante
-let volumeControl = document.getElementById('volume-control');
-let volumeSlider = volumeControl.querySelector('.slider');
 
-
-console.log(volumeControl)
-// Agregar un controlador de eventos para actualizar el volumen
-volumeSlider.addEventListener('input', function() {
-  console.log("pase por el volumen")
-  let volume = parseFloat(volumeSlider.value)
-
-  
-  Amplitude.setVolume(volume);
-});
-    </script>
 
 
 

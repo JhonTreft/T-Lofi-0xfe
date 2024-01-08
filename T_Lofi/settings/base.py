@@ -62,7 +62,7 @@ THIRDS_APP = [
 
 INTERNAL_IPS = [
     "127.0.0.1",
-    "t-lofi.onrender.com",
+    #"t-lofi.onrender.com",
 ]
 
 INSTALLED_APPS  = list(chain(DJANGO_APPS,LOCAL_APPS,THIRDS_APP))

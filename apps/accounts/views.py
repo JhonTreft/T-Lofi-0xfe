@@ -82,29 +82,44 @@ class CreateProfileUserView(View):
         model = ProfileUserModel
         user_= request.user
         
-        print("oeoeooe")
-        
-        if not(model.objects.filter(user=user_).exists()):
-            create_profile = model.objects.create(
-            user = request.user,
-            username=request.POST.get('username'),
-            current_job=request.POST.get('current_job'),
-            country=request.POST.get('country'),
-            status_desc=request.POST.get('status_desc'),
-            description=request.POST.get('description'),
-            avatar=request.FILES.get('avatar'),
-            url_linkedin=request.POST.get('linkedin'),
-            url_github=request.POST.get('github')
-            )
+        # Validación de campos antes de asignar valores
+        username = request.POST.get('username')
+        current_job = request.POST.get('current_job')
+        country = request.POST.get('country')
+        status_desc = request.POST.get('status_desc')
+        description = request.POST.get('description')
+        avatar = request.FILES.get('avatar')
+        url_linkedin = request.POST.get('linkedin')
+        url_github = request.POST.get('github')
+
+        # Verificación de campos no vacíos
+        if not all([username, current_job, country, status_desc, description, avatar, url_linkedin, url_github]):
+            # Si alguno de los campos está vacío, manejar el error, redirigir o responder adecuadamente
+            # Por ejemplo, puedes retornar un mensaje de error o redirigir a una página de error
+            messages.warning(request, 'Debes de llenar todos los campos y avatar para poder continuar🤡🤡')
+        else:
+            if not(model.objects.filter(user=user_).exists()):
+                create_profile = model.objects.create(
+                user = request.user,
+                username=request.POST.get('username'),
+                current_job=request.POST.get('current_job'),
+                country=request.POST.get('country'),
+                status_desc=request.POST.get('status_desc'),
+                description=request.POST.get('description'),
+                avatar=request.FILES.get('avatar'),
+                url_linkedin=request.POST.get('linkedin'),
+                url_github=request.POST.get('github')
+                )
+                
+                create_profile.save()
+                messages.success(request, 'La acción se ha completado con éxito.')
+                return HttpResponseRedirect(reverse('profile_user'))
             
-            create_profile.save()
-            messages.success(request, 'La acción se ha completado con éxito.')
-            return HttpResponseRedirect(reverse('profile_user'))
+            
+            messages.success(request, 'Ya existe un perfil para este usuario')
+            return HttpResponseRedirect(reverse('create_profile'))
         
-        
-        messages.success(request, 'Ya existe un perfil para este usuario')
         return HttpResponseRedirect(reverse('create_profile'))
-            
 
 
 class UserProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):

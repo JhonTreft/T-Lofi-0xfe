@@ -16,9 +16,9 @@ cd ../..
 
 
 
-python ./run_makemigrations.py
+#python ./run_makemigrations.py
 
-python ./run_migrate.py
+#python ./run_migrate.py
 
 
 #Django Migrations and makemigrations
@@ -27,12 +27,13 @@ python ./run_migrate.py
 
 python ./bin/manage.py migrate
 
-#python ./bin/manage.py collectstatic --no-input
+python ./bin/manage.py collectstatic --no-input
 
-#python ./bin/manage.py tailwind start
+python ./bin/manage.py tailwind start
 
 
-#if [[ $CREATE_SUPERUSER ]];
-#then
-#  python ./bin/manage.py createsuperuser --no-input
-#fi
+if [[ $CREATE_SUPERUSER ]];
+then
+  python ./bin/manage.py createsuperuser --no-input
+fi
+

@@ -1,7 +1,22 @@
 
 const enviroments_url = {
-  HOST_URL:"https://t-lofi.onrender.com",
+    HOST_URL:"https://t-lofi.onrender.com",
+    //HOST_URL: "http://localhost:8000/"
 }
+
+
+
+
+if(localStorage.getItem('anuncio_chats') !== "true"){
+  iziToast.warning({
+    position:'topLeft',
+    title: 'Recuerda',
+    message: 'si no has creado un profile tus mensaje no apareceran en el chat dale click en perfil y crea uno',
+  });
+  localStorage.setItem("anuncio_chats","true")
+
+}
+
 
 
 
@@ -318,7 +333,7 @@ function mostrarMensajes() {
           // Crear elementos HTML para cada mensaje
           let messagesContainer = document.querySelector('.chat-messages');
 
-          chatData.forEach(function(chat) {
+          for (let chat of  chatData.chats) {
               // Verificar si el mensaje ya se ha mostrado en la página
 
               // Buscar cualquier URL en el mensaje y convertirla en un enlace
@@ -380,7 +395,7 @@ function mostrarMensajes() {
                   // Agregar el ID del mensaje al arreglo de mensajes mostrados
                   shownMessages.push(chat.id);
               }
-          });
+          }
   
           // Función para hacer scroll hacia abajo
           const chatContainer = document.getElementById('chat-container');
@@ -416,9 +431,16 @@ document.querySelector('.chat-input button').addEventListener('click', function(
       if (xhr.status === 200) {
           console.log("Mensaje enviado POSTTTT:", message);
           var response = JSON.parse(xhr.responseText);
-          if (response.status === 'OK') {
-              // Mostrar un mensaje de confirmación al usuario
-              mostrarMensajes()
+          if (response.status_code === 200) {
+            iziToast.success({
+              position:'topLeft',
+              title: 'Created',
+              message: 'OK',
+          });
+
+          // Mostrar un mensaje de confirmación al usuario
+          mostrarMensajes()
+
           } else {
               // Mostrar un mensaje de error al usuario
               iziToast.warning({

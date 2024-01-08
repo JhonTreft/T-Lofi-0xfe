@@ -2,6 +2,9 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
+import cloudinary
+
+
 # Create your models here.
 class ProfileUserModel(models.Model):
     ACTIVO = 'Activo'
@@ -23,6 +26,7 @@ class ProfileUserModel(models.Model):
     description = models.TextField()
     status_user = models.CharField(max_length=20, choices=STATUS_CHOICES, default=ACTIVO)
     avatar = models.ImageField(upload_to='users_avatars/',blank=True)
+    avatar_url = models.CharField(max_length=1000,blank=True,null=True)
     url_linkedin= models.CharField(max_length=1000,blank=True)
     url_github= models.CharField(max_length=1000,blank=True)
     
@@ -32,6 +36,11 @@ class ProfileUserModel(models.Model):
 
     
     
+    def save(self, *args, **kwargs):
+        if self.avatar:  # Verifica si hay un avatar adjunto
+            cloudinary_response = cloudinary.uploader.upload(self.avatar)
+            self.avatar_url = cloudinary_response.get('url')  # Guarda la URL de Cloudinary
+        super().save(*args, **kwargs)
     
     class Meta:
         verbose_name = 'profile'
