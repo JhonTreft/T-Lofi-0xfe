@@ -11,7 +11,7 @@ pip install -r requirements.txt
 cd ./theme/static_src
 
 # Actualizar e instalar las dependencias de Node.js
-npm install -g npm@latest
+#npm install -g npm@latest
 #npm install  # Esto instala las dependencias según el package.json
 npm run dev  # Inicia el entorno de desarrollo de Tailwind CSS
 
@@ -21,7 +21,7 @@ cd ../..
 # Ejecutar comandos de Django
 python ./bin/manage.py migrate
 python ./bin/manage.py collectstatic --no-input
-python ./bin/manage.py tailwind start
+#python ./bin/manage.py tailwind start
 
 # Crear superusuario si se especifica
 if [[ $CREATE_SUPERUSER ]];
