@@ -3,12 +3,16 @@
 set -o errexit
 
 # Instalar o actualizar pip y otras dependencias de Python
-pip install --upgrade pip
+#pip install --upgrade pip
 pip install uvicorn
 #pip install -r requirements.txt
 
 # Navegar al directorio del paquete de tema
-cd ./theme/static_src && npm install  && npm run build && npm run dev
+cd ./theme/static_src 
+npm install
+npm install rimraf --save-dev
+npm run build:clean
+npm run dev
 
 # Actualizar e instalar las dependencias de Node.js¿
 # Volver al directorio principal del proyecto
