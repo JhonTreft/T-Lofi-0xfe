@@ -40,7 +40,7 @@ backdrop-filter: blur(3px);">
         <div class="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {% for friend in profile_user_friends %}
           <div class="relative group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
-            <img class="w-20 h-20 object-cover object-center rounded-full" src="{{ friend.avatar.url }}" alt="avatar" />
+            <img class="w-20 h-20 object-cover object-center rounded-full" src="{{ friend.avatar_url }}" alt="avatar" />
             <h4 class="text-white text-2xl font-bold capitalize text-center">{{ friend.user }}</h4>
             <p class="text-white/50">{{ friend.status_desc }}</p>
             {% if friend.status == 'online' %}
