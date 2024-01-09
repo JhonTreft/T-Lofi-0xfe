@@ -43,3 +43,6 @@ nosetests.xml
 htmlcov/
 
 # Ignorar
+.Dockerfile
+.docker-compose.yml
+.dockerignore

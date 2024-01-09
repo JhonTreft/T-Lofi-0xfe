@@ -17,7 +17,7 @@ if not(SECRET_KEY):
 
 
 ALLOWED_HOSTS = [
-    "t-lofi.onrender.com",
+    "t-lofi.up.railway.app",
     "localhost",
     "127.0.0.1"
 ]
