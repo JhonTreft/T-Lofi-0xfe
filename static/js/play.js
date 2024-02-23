@@ -345,7 +345,7 @@ function mostrarMensajes() {
                     </div>
                     <div class="chat-message-content bg-gray-900  bg-opacity-80 rounded-lg px-3 py-2">
                       <div class="chat-message-username text-purple-600  font-bold">
-                        <a href="account/profile/${chat.username}" target="_blank">${chat.username}</a>
+                        <a href="account/profile/${chat.username}" target="_self">${chat.username}</a>
                       </div>
                       <div class="chat-message-text text-gray-300 font-semibold message" id="message">
                             ${chat.message}
