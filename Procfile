@@ -1,1 +1,0 @@
-web: gunicorn T_Lofi.wsgi --log-file -
