@@ -1,16 +1,16 @@
 {
-  "version": 2,
+  "version": 3,
   "builds": [
     {
       "src": "T_Lofi/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.11" }
     },
     {
-      "src": "build.sh",
+      "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "./static"
+        "distDir": "static"
       }
     }
   ],
