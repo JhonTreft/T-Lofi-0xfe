@@ -13,5 +13,15 @@
         "distDir": "static"
       }
     }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$0"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "T_Lofi/wsgi.py"
+    }
   ]
 }
