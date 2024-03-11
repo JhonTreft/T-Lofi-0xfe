@@ -18,11 +18,13 @@ urlpatterns = [
     path('',include('apps.chat.urls')),
 
 ]
+#urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+"""
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns # new
 urlpatterns += staticfiles_urlpatterns() # new
-
-
+"""
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
@@ -30,3 +32,4 @@ else:
     urlpatterns += [
         path('media/<path>', serve, {'document_root': settings.MEDIA_ROOT}),
     ]
+
