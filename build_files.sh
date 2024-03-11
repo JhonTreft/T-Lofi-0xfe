@@ -12,6 +12,7 @@ cd ./theme/static_src
 npm install
 npm install rimraf --save-dev
 #npm run build:clean
+npx update-browserslist-db@latest
 npm run dev
 
 # Actualizar e instalar las dependencias de Node.js¿

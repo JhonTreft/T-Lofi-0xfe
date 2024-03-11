@@ -75,7 +75,7 @@ SESSION_SAVE_EVERY_REQUEST = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = [
         path.join(BASE_DIR,'static')
