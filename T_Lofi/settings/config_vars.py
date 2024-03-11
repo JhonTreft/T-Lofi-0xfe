@@ -79,7 +79,7 @@ STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = [
         path.join(BASE_DIR,'static')
-] # new
+    ] # new
 
 
 MEDIA_URL = 'media/songs/'
