@@ -21,8 +21,10 @@ ALLOWED_HOSTS = [
     "t-lofi.up.railway.app",
     "localhost",
     "127.0.0.1"
-    ".vercel.app"
+    '.vercel.app',
+    'now.sh'
 ]
+
 
 TAILWIND_APP_NAME ='theme'
 
