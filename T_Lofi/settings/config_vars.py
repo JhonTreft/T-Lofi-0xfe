@@ -22,8 +22,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1"
     '.vercel.app',
-    'now.sh',
-    't-lofi-0xfe.vercel.app'
+    'now.sh'
 ]
 
 
