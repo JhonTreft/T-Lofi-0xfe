@@ -327,6 +327,7 @@ function mostrarMensajes() {
   
   xhr.onload = function() {
       if (xhr.status === 200) {
+          console.log("Respuesta recibida:", xhr.responseText);
           let chatData = JSON.parse(xhr.responseText);
           // chatData ahora contiene los datos del archivo JSON como un objeto JavaScript
   
