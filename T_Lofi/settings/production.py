@@ -5,7 +5,7 @@ import os
 DEBUG = True
 #Database Production
 
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -14,5 +14,20 @@ DATABASES = {
         'PASSWORD': 'Eb4aFGB326dFF1fE6515B1*ge6FAGGB4',
         'HOST': 'monorail.proxy.rlwy.net',
         'PORT': '28610',
+    }
+}"""
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'verceldb',
+        'USER': 'default',
+        'PASSWORD': 'VfGuse8y0zmh',
+        'HOST': 'ep-late-glitter-a4pfv4ta-pooler.us-east-1.aws.neon.tech',
+        'PORT': '5432',
+         'OPTIONS': {
+            'sslmode': 'require',
+        }
     }
 }
