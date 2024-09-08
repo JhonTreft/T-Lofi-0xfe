@@ -23,7 +23,8 @@ ALLOWED_HOSTS = [
     "127.0.0.1"
     '.vercel.app',
     'now.sh',
-    't-lofi-0xfe-production.up.railway.app'
+    't-lofi-0xfe-production.up.railway.app',
+    't-lofi-0xfe.vercel.app'
 ]
 
 
