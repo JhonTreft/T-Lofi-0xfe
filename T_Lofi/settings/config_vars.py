@@ -39,7 +39,7 @@ NODE_PATH = '/usr/bin/node'
 
 ROOT_URLCONF = 'T_Lofi.urls'
 
-WSGI_APPLICATION = 'T_Lofi.wsgi.application'
+WSGI_APPLICATION = 'T_Lofi.wsgi.app'
 
 
 # Internationalization

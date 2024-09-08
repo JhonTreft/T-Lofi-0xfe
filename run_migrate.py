@@ -6,4 +6,4 @@ aplicaciones = ['accounts',
                 'chat', 'friends','notifications','songs_api']  # Agrega los nombres de tus aplicaciones
 
 for app in aplicaciones:
-    call(['python', './bin/manage.py', 'migrate', app])
+    call(['python3.11', './bin/manage.py', 'migrate', app])
